@@ -1,5 +1,5 @@
 class Shape
-  def get_area
+  def area
     raise Error::NeedImplementError.new
   end
 end
