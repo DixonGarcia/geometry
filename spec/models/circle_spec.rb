@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Circle, type: :model do
+  describe 'Shape inheritance' do
+    it { expect(described_class).to be < Shape }
+  end
   describe '#area' do
     describe 'return error when the radius' do
       it 'is a nil value' do
