@@ -2,6 +2,7 @@
 require 'spec_helper'
 require 'database_cleaner'
 require 'capybara/rspec'
+require 'factory_bot_rails'
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
@@ -36,7 +37,9 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
+  config.include(Shoulda::Matchers::ActiveModel, type: :model)
+  config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
