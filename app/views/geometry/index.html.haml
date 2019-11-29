@@ -1,2 +1,11 @@
-%h1 Geometry#index
-%p Find me in app/views/geometry/index.html.erb
+.row
+  .col-md-12
+    %h1 Know the Area of a Circle
+    = form_tag geometry_calculate_path, method: :post, remote: true do
+      .form-group
+        %label.control-label Enter the Radius of the circle
+        = text_field_tag 'radius', nil, placeholder: 'Radius', class: 'form-control'
+      .form-group
+        = submit_tag 'Submit', class: 'btn btn-primary'
+    .response-container
+    

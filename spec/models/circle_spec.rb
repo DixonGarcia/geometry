@@ -15,13 +15,13 @@ RSpec.describe Circle, type: :model do
         expect { circle.area }.to raise_exception('Radius should be a Number')
       end
       it 'is not positive' do
-        circle = Circle.new(radius: -1)
+        circle = Circle.new(radius: '-1')
         expect { circle.area }.to raise_exception('Radius should be a Positive Number')
       end
     end
 
     it 'return correctly' do
-      circle = Circle.new(radius: 1)
+      circle = Circle.new(radius: '1')
       expect(circle.area).to eq(Math::PI)
     end
   end
